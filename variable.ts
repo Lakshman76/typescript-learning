@@ -1,13 +1,13 @@
 let greetings: string = "Welcome! Lakshman";
 
-// number 
+// number
 
 let myNum: number;
 
 // myNum = "123" ---> this is wrong
 myNum = 123;
 
-//Note - 
+//Note -
 let myId = 23; // it also detect that myId is a number type
 // myId = "hello";  ---> this also gives error
 
@@ -16,5 +16,15 @@ let myId = 23; // it also detect that myId is a number type
 let isLoggedIn: boolean = false;
 isLoggedIn.valueOf(); // false
 
+// any --> Don't use any
 
-export {}
+let hero; // by default it is "any" type
+
+function getHero() {
+  // ...
+  return "thor";
+}
+
+hero = getHero();
+
+export {};

@@ -8,5 +8,14 @@ myNum = 123;
 //Note - 
 var myId = 23; // it also detect that myId is a number type
 // myId = "hello";  ---> this also gives error
+// Boolean
 var isLoggedIn = false;
-console.log(isLoggedIn.valueOf()); // false
+isLoggedIn.valueOf(); // false
+// any --> Don't use any 
+var hero; // by default it is "any" type
+function getHero() {
+    // ...
+    return "thor";
+}
+hero = getHero();
+console.log(hero);
