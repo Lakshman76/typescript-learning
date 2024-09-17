@@ -27,3 +27,38 @@ function createNewUser(user: User): User {
 }
 
 createNewUser({ name: "", email: "", isActive: true });
+
+type NewUser = {
+  readonly _id: string; // readonly
+  name: string;
+  email: string;
+  isActive: boolean;
+  creditCardDetails?: string; // optional
+};
+
+let myUser: NewUser = {
+  _id: "12345",
+  name: "Lakshman",
+  email: "lakshman.com",
+  isActive: true,
+};
+
+myUser.email = "laksh@google.com";
+// myUser._id = "1a2bcd3"; //! error: readonly not assignable
+
+type CardNumber = {
+  cardNumber: string;
+};
+type CardDate = {
+  cardDate: string;
+};
+type CardDetails = CardNumber &
+  CardDate & {
+    cvv: number;
+  };
+
+const cardDetails: CardDetails = {
+  cardNumber: "123456789",
+  cardDate: "12/21",
+  cvv: 123,
+};

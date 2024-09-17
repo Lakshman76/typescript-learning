@@ -19,3 +19,15 @@ function createNewUser(user) {
     };
 }
 createNewUser({ name: "", email: "", isActive: true });
+var myUser = {
+    _id: "12345",
+    name: "Lakshman",
+    email: "lakshman.com",
+    isActive: true,
+};
+myUser.email = "laksh@google.com";
+var cardDetails = {
+    cardNumber: "123456789",
+    cardDate: "12/21",
+    cvv: 123,
+};
