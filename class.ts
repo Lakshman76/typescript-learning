@@ -27,25 +27,23 @@ const user2 = new User2("Lakshman", "laksh@google.com", "123");
 
 class newUser {
   private _courseCount = 1;
-  readonly city: string = "Delhi";
-  constructor(
-    public name: string,
-    public email: string
-  ) {}
+  protected city: string = "Delhi";
+  constructor(public name: string, public email: string) {}
 
   private deleteToken() {
     console.log("Token deleted");
   }
 
   get getAppleEmailId(): string {
-    return `apple${this.email}`
+    return `apple${this.email}`;
   }
 
   get getCourseCount(): number {
     return this._courseCount;
   }
 
-  set setCourseCount(courseCount: number) { // cannot use any one of the return type
+  set setCourseCount(courseCount: number) {
+    // cannot use any one of the return type
     if (courseCount <= 1) {
       throw new Error("Course count should be more than 1");
     }
@@ -58,5 +56,17 @@ laksh.setCourseCount = 4;
 console.log(laksh.getCourseCount); // 4
 // laksh.deleteToken(); //! error --> private method can't be accessed
 console.log(laksh.getAppleEmailId); // applelaksh@.com
+
+class SubUser extends newUser {
+  isFamily: boolean = true;
+  changeCity() {
+    this.city = "Mumbai";
+  }
+}
+
+const subUser = new SubUser("Lakshman kr", "laksh12@google.com");
+subUser.changeCity();
+// console.log(subLaksh.city); //! error --> protected property also can't be accessed
+console.log(subUser);
 
 export {};
