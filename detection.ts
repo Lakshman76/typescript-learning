@@ -38,3 +38,34 @@ printAll(["Laksh", "Kumar"]); // Laksh, Kumar
 printAll(["Laksh", "Kumar", ""]); // Laksh, Kumar
 printAll(null); // lol
 printAll(""); // lol
+
+
+function logValue(x: Date | string) {
+  if (x instanceof Date) {
+    console.log(x.toUTCString());
+  } else {
+    console.log(x.toUpperCase());
+  }
+}
+logValue(new Date()); // Thu, 26 Sep 2024 10:16:56 GMT
+logValue("Laksh"); // LAKSH
+
+type Fish = { swim: () => void };
+type Bird = { fly: () => void };
+
+function isFish(pet: Fish | Bird): pet is Fish {
+  return (pet as Fish).swim !== undefined;
+}
+
+function getFood(pet: Fish | Bird) {
+  if (isFish(pet)) {
+    pet;
+    return "fish food";
+  } else {
+    pet;
+    return "bird food";
+  }
+}
+
+const food = getFood({ swim: () => {} });
+console.log(food); // fish food
